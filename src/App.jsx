@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CalendarCheck, MapPin, Instagram , Youtube , Linkedin } from 'lucide-react';
+import { CalendarCheck, MapPin, Instagram, Youtube, Film } from 'lucide-react';
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({
@@ -20,26 +20,53 @@ function App() {
     
     const createLeaves = () => {
       const newLeaves = [];
-      // Further reduce leaves count for very small screens
       const screenWidth = window.innerWidth;
-      let leafCount = 12;
+      // Increase leaf count for more intensity
+      let leafCount = 25;
       
       if (screenWidth < 640) {
-        leafCount = 6;
+        leafCount = 15;
       } else if (screenWidth < 480) {
-        leafCount = 4;
+        leafCount = 10;
       }
       
       for (let i = 0; i < leafCount; i++) {
+        // Determine if this should be a spring color or autumn color
+        const isSpringColor = Math.random() > 0.7; // 30% chance for spring colors
+        
+        let colorPalette;
+        if (isSpringColor) {
+          // Spring colors with some transparency
+          colorPalette = [
+            'rgba(152, 251, 152, 0.9)', // pale green
+            'rgba(144, 238, 144, 0.9)', // light green
+            'rgba(50, 205, 50, 0.9)',   // lime green
+            'rgba(124, 252, 0, 0.9)',   // lawn green
+            'rgba(173, 255, 47, 0.9)'   // green yellow
+          ];
+        } else {
+          // Autumn colors as in the reference image - rich oranges and reds
+          colorPalette = [
+            '#ff4500', // orange red
+            '#ff5e00', // bright orange
+            '#ff7800', // tangerine
+            '#ff8c00', // dark orange
+            '#d2691e', // chocolate
+            '#b22222', // firebrick red
+            '#8b2500'  // dark red
+          ];
+        }
+        
         newLeaves.push({
           id: i,
           left: `${Math.random() * 100}%`,
-          size: `${Math.random() * (screenWidth < 480 ? 20 : 30) + (screenWidth < 480 ? 20 : 30)}px`, // Smaller leaves on mobile
-          delay: `${Math.random() * 3}s`,
-          duration: `${Math.random() * 5 + 8}s`,
-          color: [
-            '#8B4513', '#A52A2A', '#CD853F', '#D2691E', '#AA5303', '#9B2D06'
-          ][Math.floor(Math.random() * 6)]
+          size: `${Math.random() * (screenWidth < 480 ? 25 : 40) + (screenWidth < 480 ? 20 : 25)}px`,
+          delay: `${Math.random() * 5}s`,
+          duration: `${Math.random() * 4 + 7}s`,
+          color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
+          rotation: Math.floor(Math.random() * 360),
+          // Add some variety to the scale to mimic the reference image
+          scale: 0.8 + Math.random() * 0.4
         });
       }
       
@@ -83,27 +110,33 @@ function App() {
   return (
     <div className="relative min-h-screen overflow-hidden flex flex-col justify-center items-center p-2 sm:p-4" 
          style={{ 
-           background: 'linear-gradient(to bottom, #3E2723, #5D4037)',
-           backgroundImage: "url('/image.png')",
+           background: 'linear-gradient(to bottom, rgba(62, 39, 35, 0.8), rgba(93, 64, 55, 0.8))',
+           backgroundImage: "url('/newBG.jpg')",
            backgroundSize: 'cover',
            backgroundPosition: 'center',
-           backgroundBlendMode: 'overlay'
+           backgroundBlendMode: 'overlay',
+           fontFamily: "'Marcellus', 'Cinzel Decorative', serif"
          }}>
-      {/* Falling Leaves */}
+      {/* Falling Maple Leaves */}
       {leaves.map((leaf) => (
         <div
           key={leaf.id}
-          className="absolute z-10 simple-fall"
+          className="absolute z-10 maple-fall"
           style={{
             left: leaf.left,
             width: leaf.size,
             height: leaf.size,
             animationDelay: leaf.delay,
-            animationDuration: leaf.duration
+            animationDuration: leaf.duration,
+            transform: `rotate(${leaf.rotation}deg) scale(${leaf.scale})` // Initial rotation and scale
           }}
         >
+          {/* Realistic Maple Leaf SVG based on reference image */}
           <svg viewBox="0 0 100 100" style={{ fill: leaf.color }}>
-            <path d="M50,0 C70,25 100,25 100,50 C100,75 70,75 50,100 C30,75 0,75 0,50 C0,25 30,25 50,0 Z" />
+            <path d="M50,3 C50,3 62,25 62,40 C70,38 80,25 82,18 C85,45 60,50 50,60 
+                    C40,50 15,45 18,18 C20,25 30,38 38,40 C38,25 50,3 50,3 Z
+                    M50,60 C55,70 68,75 75,80 C60,85 55,70 50,90 C45,70 40,85 25,80
+                    C32,75 45,70 50,60 Z" />
           </svg>
         </div>
       ))}
@@ -162,8 +195,14 @@ function App() {
             <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-l-4 sm:border-b-8 sm:border-l-8 border-amber-800"></div>
             <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-r-4 sm:border-b-8 sm:border-r-8 border-amber-800"></div>
 
+            {/* Tagline */}
+            <h4 className="text-sm xs:text-lg sm:text-2xl font-semibold text-center mb-2"
+                style={{ color: '#E8B25B' }}>
+              The Rhythm Begins In...
+            </h4>
+            
             {/* Title - Modified to fit on smaller screens */}
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4 tracking-wide text-center"
+            <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-4 tracking-wide text-center"
                 style={{ color: '#E8B25B' }}>
               RANG-E-CHINAR 2.0
             </h1>
@@ -231,72 +270,114 @@ function App() {
               </div>
             </div>
             
-            {/* Instagram Link Section */}
-            {/* Instagram and YouTube Link Section */}
-<span>
-  <div className="w-full h-px my-4 sm:my-6" style={{ backgroundColor: '#8B4513' }}></div>
-  
-  <div className="mt-4 sm:mt-6 text-center flex justify-center gap-4">
-    {/* Instagram Link */}
-    <a 
-      href="https://www.instagram.com/rang_e_chinar?igsh=MTd6dnBleXd2NGd3Yg=="
-      className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-      style={{ 
-        backgroundColor: '#5D342C',
-        border: '2px solid #704638',
-        color: '#D9AB77'
-      }}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
-    </a>
-    
-    {/* YouTube Link */}
-    <a 
-      href="https://youtube.com/@nitsrinagarofficial?si=HJOsKPe1Z1gjM6kF"
-      className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-      style={{ 
-        backgroundColor: '#5D342C',
-        border: '2px solid #704638',
-        color: '#D9AB77'
-      }}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Youtube className="w-5 h-5 sm:w-6 sm:h-6" />
-    </a>
-  </div>
+            {/* Links Section */}
+            <span>
+              <div className="w-full h-px my-4 sm:my-6" style={{ backgroundColor: '#8B4513' }}></div>
+              
+              <div className="mt-4 sm:mt-6 text-center flex flex-wrap justify-center gap-4">
+                {/* Instagram Link */}
+                <a 
+                  href="https://www.instagram.com/rang_e_chinar?igsh=MTd6dnBleXd2NGd3Yg=="
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                  style={{ 
+                    backgroundColor: '#5D342C',
+                    border: '2px solid #704638',
+                    color: '#D9AB77'
+                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <span className="hidden sm:inline">Instagram</span>
+                </a>
+                
+                {/* YouTube Link */}
+                <a 
+                  href="https://youtube.com/@nitsrinagarofficial?si=HJOsKPe1Z1gjM6kF"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                  style={{ 
+                    backgroundColor: '#5D342C',
+                    border: '2px solid #704638',
+                    color: '#D9AB77'
+                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Youtube className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <span className="hidden sm:inline">YouTube</span>
+                </a>
+                
+                {/* Aftermovie Link */}
+                <a 
+                  href="https://www.youtube.com/watch?v=rangechinar24aftermovie"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                  style={{ 
+                    backgroundColor: '#5D342C',
+                    border: '2px solid #704638',
+                    color: '#D9AB77'
+                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Film className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <span className="hidden sm:inline">Aftermovie '24</span>
+                  <span className="inline sm:hidden">Aftermovie</span>
+                </a>
+              </div>
 
-  <div className="w-full h-px my-4 sm:my-6" style={{ backgroundColor: '#8B4513' }}></div>
-</span>
-
+              <div className="w-full h-px my-4 sm:my-6" style={{ backgroundColor: '#8B4513' }}></div>
+            </span>
            
           </div>
         </div>
       </div>
 
-      {/* Add CSS for animations */}
+      {/* Enhanced CSS for maple leaf animations */}
       <style jsx>{`
-        @keyframes simple-fall {
+        @keyframes maple-fall {
           0% {
-            top: -10%;
-            transform: translateX(10px) rotate(0deg);
+            top: -20%;
+            transform: translateX(0) rotate(0deg);
+            opacity: 0;
+          }
+          5% {
+            opacity: 0.9;
+          }
+          25% {
+            transform: translateX(50px) rotate(70deg);
+          }
+          40% {
+            transform: translateX(-30px) rotate(170deg);
+          }
+          60% {
+            transform: translateX(25px) rotate(250deg);
+          }
+          75% {
+            transform: translateX(-50px) rotate(300deg);
+            opacity: 0.8;
+          }
+          95% {
+            opacity: 0.7;
           }
           100% {
-            top: 100%;
-            transform: translateX(-10px) rotate(360deg);
+            top: 110%;
+            transform: translateX(-20px) rotate(360deg);
+            opacity: 0;
           }
         }
         
-        .simple-fall {
+        .maple-fall {
           position: absolute;
           top: -10%;
-          animation-name: simple-fall;
+          animation-name: maple-fall;
           animation-timing-function: ease-in-out;
           animation-iteration-count: infinite;
           animation-direction: normal;
+          filter: drop-shadow(0 2px 2px rgba(198, 20, 20, 0.3));
         }
+        
+        /* Font import for Marcellus */
+        @import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
       `}</style>
     </div>
   );
