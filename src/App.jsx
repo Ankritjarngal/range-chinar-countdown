@@ -117,7 +117,7 @@ function App() {
         {/* Title - Modified to fit on smaller screens */}
         <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-2 sm:mb-4 tracking-wide text-center"
             style={{ color: '#E8B25B' }}>
-          RANGECHINAR 2.0
+          RANG-E-CHINAR 2.0
         </h1>
         <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-center mb-1 sm:mb-2"
             style={{ color: '#D6A05C' }}>
@@ -206,9 +206,7 @@ function App() {
             <span className="text-md sm:text-lg font-serif">Follow us on Instagram</span>
           </a>
           
-          <div className="mt-3 text-xs sm:text-sm" style={{ color: '#D9AB77' }}>
-            Stay updated with the latest festival news and announcements
-          </div>
+          
         </div>
       </div>
     </div>
