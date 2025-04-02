@@ -117,12 +117,9 @@ function App() {
         {/* Title - Modified to fit on smaller screens */}
         <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-2 sm:mb-4 tracking-wide text-center"
             style={{ color: '#E8B25B' }}>
-          RANGECHINAR 2.0
+          RANG-E-CHINAR 2.0
         </h1>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-center mb-1 sm:mb-2"
-            style={{ color: '#D6A05C' }}>
-          2025 Cultural Festival
-        </h2>
+        
         <h3 className="text-md sm:text-xl font-serif text-center mb-4 sm:mb-6"
             style={{ color: '#C39355' }}>
           National Institute of Technology, Srinagar
@@ -177,7 +174,7 @@ function App() {
           <div className="flex items-center justify-center gap-2 sm:gap-3"
                style={{ color: '#D9AB77' }}>
             <CalendarCheck className="w-5 h-5 sm:w-8 sm:h-8" />
-            <span className="text-lg sm:text-xl md:text-2xl font-serif">4th May 2025</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif">4th,5th May 2025</span>
           </div>
           <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4"
                style={{ color: '#D9AB77' }}>
