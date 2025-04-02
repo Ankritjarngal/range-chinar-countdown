@@ -78,7 +78,7 @@ function App() {
     <div className="relative min-h-screen overflow-hidden flex flex-col justify-center items-center p-2 sm:p-4" 
          style={{ 
            background: 'linear-gradient(to bottom, #3E2723, #5D4037)',
-           backgroundImage: "url('/autumn-bg.jpg')",
+           backgroundImage: "url('/WhatsApp Image 2025-04-01 at 2.59.25 PM.jpeg')",
            backgroundSize: 'cover',
            backgroundPosition: 'center',
            backgroundBlendMode: 'overlay'
@@ -115,7 +115,7 @@ function App() {
         <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-r-4 sm:border-b-8 sm:border-r-8 border-amber-800"></div>
 
         {/* Title - Modified to fit on smaller screens */}
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-2 sm:mb-4 tracking-wide text-center"
+        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl  font-bold mb-2 sm:mb-4 tracking-wide text-center"
             style={{ color: '#E8B25B' }}>
           RANG-E-CHINAR 2.0
         </h1>
@@ -174,12 +174,12 @@ function App() {
           <div className="flex items-center justify-center gap-2 sm:gap-3"
                style={{ color: '#D9AB77' }}>
             <CalendarCheck className="w-5 h-5 sm:w-8 sm:h-8" />
-            <span className="text-lg sm:text-xl md:text-2xl font-serif">2nd-3rd May 2025</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif">2<sup>nd</sup>-3<sup>rd</sup> May 2025</span>
           </div>
           <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4"
                style={{ color: '#D9AB77' }}>
             <MapPin className="w-5 h-5 sm:w-8 sm:h-8" />
-            <span className="text-lg sm:text-xl md:text-2xl font-serif">Hazratbal, Srinagar</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif">NIT Srinagar, Hazratbal</span>
           </div>
         </div>
         

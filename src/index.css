@@ -38,3 +38,7 @@
     border-color: #8B4513;
   }
 }
+/* index.css or App.css */
+body {
+  font-family: 'Cinzel Decorative', serif;
+}
