@@ -119,10 +119,7 @@ function App() {
             style={{ color: '#E8B25B' }}>
           RANG-E-CHINAR 2.0
         </h1>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-center mb-1 sm:mb-2"
-            style={{ color: '#D6A05C' }}>
-          2025 Cultural Festival
-        </h2>
+        
         <h3 className="text-md sm:text-xl font-serif text-center mb-4 sm:mb-6"
             style={{ color: '#C39355' }}>
           National Institute of Technology, Srinagar
