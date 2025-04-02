@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CalendarCheck, MapPin, Instagram } from 'lucide-react';
+import { CalendarCheck, MapPin, Instagram , Youtube , Linkedin } from 'lucide-react';
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({
@@ -232,25 +232,46 @@ function App() {
             </div>
             
             {/* Instagram Link Section */}
-            <div className="w-full h-px my-4 sm:my-6"
-                style={{ backgroundColor: '#8B4513' }}></div>
-                
-            <div className="mt-4 sm:mt-6 text-center">
-              <a 
-                href="https://www.instagram.com/rang_e_chinar?igsh=MTd6dnBleXd2NGd3Yg=="
-                className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                style={{ 
-                  backgroundColor: '#5D342C',
-                  border: '2px solid #704638',
-                  color: '#D9AB77'
-                }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span className="text-md sm:text-lg font-serif">Follow us on Instagram</span>
-              </a>
-            </div>
+            {/* Instagram and YouTube Link Section */}
+<span>
+  <div className="w-full h-px my-4 sm:my-6" style={{ backgroundColor: '#8B4513' }}></div>
+  
+  <div className="mt-4 sm:mt-6 text-center flex justify-center gap-4">
+    {/* Instagram Link */}
+    <a 
+      href="https://www.instagram.com/rang_e_chinar?igsh=MTd6dnBleXd2NGd3Yg=="
+      className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+      style={{ 
+        backgroundColor: '#5D342C',
+        border: '2px solid #704638',
+        color: '#D9AB77'
+      }}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
+    </a>
+    
+    {/* YouTube Link */}
+    <a 
+      href="https://youtube.com/@nitsrinagarofficial?si=HJOsKPe1Z1gjM6kF"
+      className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+      style={{ 
+        backgroundColor: '#5D342C',
+        border: '2px solid #704638',
+        color: '#D9AB77'
+      }}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Youtube className="w-5 h-5 sm:w-6 sm:h-6" />
+    </a>
+  </div>
+
+  <div className="w-full h-px my-4 sm:my-6" style={{ backgroundColor: '#8B4513' }}></div>
+</span>
+
+           
           </div>
         </div>
       </div>
