@@ -177,7 +177,7 @@ function App() {
           <div className="flex items-center justify-center gap-2 sm:gap-3"
                style={{ color: '#D9AB77' }}>
             <CalendarCheck className="w-5 h-5 sm:w-8 sm:h-8" />
-            <span className="text-lg sm:text-xl md:text-2xl font-serif">2-3 May 2025</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif">2nd-3rd May 2025</span>
           </div>
           <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4"
                style={{ color: '#D9AB77' }}>
