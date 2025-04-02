@@ -114,10 +114,10 @@ function App() {
         <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-l-4 sm:border-b-8 sm:border-l-8 border-amber-800"></div>
         <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-r-4 sm:border-b-8 sm:border-r-8 border-amber-800"></div>
 
-        {/* Title - Keep on one line with smaller font size on mobile */}
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-2 sm:mb-4 tracking-wide text-center whitespace-nowrap"
+        {/* Title - Modified to fit on smaller screens */}
+        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-2 sm:mb-4 tracking-wide text-center"
             style={{ color: '#E8B25B' }}>
-          RANG-E-CHINAR 2.0
+          RANGECHINAR 2.0
         </h1>
         <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-center mb-1 sm:mb-2"
             style={{ color: '#D6A05C' }}>
