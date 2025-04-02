@@ -1,0 +1,40 @@
+@import "tailwindcss";
+/* Add this to your index.css or App.css */
+
+/* Simplified leaf animation */
+@keyframes simpleFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg) translateX(50px);
+    opacity: 0;
+  }
+}
+
+.simple-fall {
+  animation-name: simpleFall;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+/* Add these class utilities if you're using Tailwind */
+@layer utilities {
+  .bg-vintage-paper {
+    background-image: url('/paper-texture.png');
+    background-color: #f5f0e1;
+  }
+  
+  .border-vintage {
+    border-style: double;
+    border-width: 6px;
+    border-color: #8B4513;
+  }
+}
