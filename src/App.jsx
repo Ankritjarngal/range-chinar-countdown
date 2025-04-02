@@ -10,8 +10,14 @@ function App() {
   });
   
   const [leaves, setLeaves] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   
   useEffect(() => {
+    // Set scroll animation to start after a short delay
+    setTimeout(() => {
+      setIsOpen(true);
+    }, 500);
+    
     const createLeaves = () => {
       const newLeaves = [];
       // Further reduce leaves count for very small screens
@@ -78,7 +84,7 @@ function App() {
     <div className="relative min-h-screen overflow-hidden flex flex-col justify-center items-center p-2 sm:p-4" 
          style={{ 
            background: 'linear-gradient(to bottom, #3E2723, #5D4037)',
-           backgroundImage: "url('/WhatsApp Image 2025-04-01 at 2.59.25 PM.jpeg')",
+           backgroundImage: "url('/image.png')",
            backgroundSize: 'cover',
            backgroundPosition: 'center',
            backgroundBlendMode: 'overlay'
@@ -102,110 +108,175 @@ function App() {
         </div>
       ))}
       
-      {/* Main Content */}
-      <div className="relative z-20 w-11/12 max-w-3xl py-6 sm:py-10 rounded-lg border-4 sm:border-8 border-double shadow-2xl p-4 sm:p-8 mx-auto my-4 sm:my-6"
-           style={{ 
-             backgroundColor: 'rgba(41, 24, 15, 0.85)', 
-             borderColor: '#593A27',
-             boxShadow: '0 0 30px rgba(0,0,0,0.5)'
-           }}>
-        <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 border-t-4 border-l-4 sm:border-t-8 sm:border-l-8 border-amber-800"></div>
-        <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 border-t-4 border-r-4 sm:border-t-8 sm:border-r-8 border-amber-800"></div>
-        <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-l-4 sm:border-b-8 sm:border-l-8 border-amber-800"></div>
-        <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-r-4 sm:border-b-8 sm:border-r-8 border-amber-800"></div>
+      {/* Main Content with Scroll Animation */}
+      <div className="relative z-20 w-11/12 max-w-3xl mx-auto my-4 sm:my-6 overflow-hidden">
+        {/* Top scroll roll */}
+        <div 
+          className={`w-full h-12 sm:h-16 transition-all duration-1000 ease-out ${isOpen ? 'transform -translate-y-full' : ''}`}
+          style={{
+            background: '#8B5A2B',
+            borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
+            boxShadow: 'inset 0 -10px 15px -5px rgba(0,0,0,0.4), 0 5px 10px rgba(0,0,0,0.3)',
+            zIndex: 30,
+            position: 'absolute',
+            top: isOpen ? '0' : '-2rem',
+            left: 0,
+            transformOrigin: 'top',
+          }}
+        ></div>
 
-        {/* Title - Modified to fit on smaller screens */}
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl  font-bold mb-2 sm:mb-4 tracking-wide text-center"
-            style={{ color: '#E8B25B' }}>
-          RANG-E-CHINAR 2.0
-        </h1>
-        
-        <h3 className="text-md sm:text-xl font-serif text-center mb-4 sm:mb-6"
-            style={{ color: '#C39355' }}>
-          National Institute of Technology, Srinagar
-        </h3>
-        
-        <div className="w-full h-px my-4 sm:my-6 relative"
-             style={{ backgroundColor: '#8B4513' }}>
-          <div className="absolute left-1/2 -translate-x-1/2 -top-2 px-4"
-               style={{ backgroundColor: '#29180F' }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                 style={{ color: '#8B4513' }}>
-              <path d="M12 6L7 12H17L12 6Z" fill="currentColor" />
-              <path d="M12 18L17 12H7L12 18Z" fill="currentColor" />
-            </svg>
-          </div>
-        </div>
-        
-        {/* Timer Section - Improved for mobile */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 md:gap-6 mt-4 sm:mt-6">
-          {Object.entries(timeLeft).map(([unit, value]) => (
-            <div
-              key={unit}
-              className="p-2 sm:p-4 md:p-6 rounded-md text-center transform hover:scale-105 transition duration-300 shadow-lg"
-              style={{ 
-                backgroundColor: '#5D342C', 
-                borderWidth: '2px',
-                borderStyle: 'solid',
-                borderColor: '#704638'
-              }}
-            >
-              <div className="text-2xl sm:text-3xl md:text-5xl font-bold" 
-                   style={{ color: '#ECC089' }}>
-                {value.toString().padStart(2, '0')}
-              </div>
-              <div className="capitalize text-xs sm:text-sm md:text-lg mt-1 sm:mt-2"
-                   style={{ color: '#D9AB77' }}>
-                {unit}
+        {/* Bottom scroll roll */}
+        <div 
+          className={`w-full h-12 sm:h-16 transition-all duration-1000 ease-out ${isOpen ? 'transform translate-y-full' : ''}`}
+          style={{
+            background: '#8B5A2B',
+            borderRadius: '0 0 50% 50% / 0 0 100% 100%',
+            boxShadow: 'inset 0 10px 15px -5px rgba(0,0,0,0.4), 0 -5px 10px rgba(0,0,0,0.3)',
+            zIndex: 30,
+            position: 'absolute',
+            bottom: isOpen ? '0' : '-2rem',
+            left: 0,
+            transformOrigin: 'bottom',
+          }}
+        ></div>
+
+        {/* Content wrapper with animation */}
+        <div 
+          className={`w-full transition-all duration-1500 ease-out overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'}`}
+          style={{
+            transition: 'max-height 1.5s cubic-bezier(0.22, 0.61, 0.36, 1)'
+          }}
+        >
+          <div 
+            className="w-full py-6 sm:py-10 rounded-lg border-4 sm:border-8 border-double shadow-2xl p-4 sm:p-8"
+            style={{ 
+              backgroundColor: 'rgba(41, 24, 15, 0.85)', 
+              borderColor: '#593A27',
+              boxShadow: '0 0 30px rgba(0,0,0,0.5)',
+              backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%23593a27\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E")',
+              backgroundBlendMode: 'overlay'
+            }}>
+            {/* Corner decorations */}
+            <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 border-t-4 border-l-4 sm:border-t-8 sm:border-l-8 border-amber-800"></div>
+            <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 border-t-4 border-r-4 sm:border-t-8 sm:border-r-8 border-amber-800"></div>
+            <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-l-4 sm:border-b-8 sm:border-l-8 border-amber-800"></div>
+            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 border-b-4 border-r-4 sm:border-b-8 sm:border-r-8 border-amber-800"></div>
+
+            {/* Title - Modified to fit on smaller screens */}
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4 tracking-wide text-center"
+                style={{ color: '#E8B25B' }}>
+              RANG-E-CHINAR 2.0
+            </h1>
+            
+            <h3 className="text-md sm:text-xl font-serif text-center mb-4 sm:mb-6"
+                style={{ color: '#C39355' }}>
+              National Institute of Technology, Srinagar
+            </h3>
+            
+            <div className="w-full h-px my-4 sm:my-6 relative"
+                style={{ backgroundColor: '#8B4513' }}>
+              <div className="absolute left-1/2 -translate-x-1/2 -top-2 px-4"
+                  style={{ backgroundColor: '#29180F' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                    style={{ color: '#8B4513' }}>
+                  <path d="M12 6L7 12H17L12 6Z" fill="currentColor" />
+                  <path d="M12 18L17 12H7L12 18Z" fill="currentColor" />
+                </svg>
               </div>
             </div>
-          ))}
-        </div>
-        
-        <div className="w-full h-px my-4 sm:my-8"
-             style={{ backgroundColor: '#8B4513' }}></div>
-        
-        {/* Event Details Section */}
-        <div className="mt-4 sm:mt-6 p-3 sm:p-6 rounded-md border-2 sm:border-4 text-center max-w-lg mx-auto"
-             style={{ 
-               backgroundColor: 'rgba(64, 37, 25, 0.7)',
-               borderColor: '#593A27'
-             }}>
-          <div className="flex items-center justify-center gap-2 sm:gap-3"
-               style={{ color: '#D9AB77' }}>
-            <CalendarCheck className="w-5 h-5 sm:w-8 sm:h-8" />
-            <span className="text-lg sm:text-xl md:text-2xl font-serif">2<sup>nd</sup>-3<sup>rd</sup> May 2025</span>
+            
+            {/* Timer Section - Improved for mobile */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 md:gap-6 mt-4 sm:mt-6">
+              {Object.entries(timeLeft).map(([unit, value]) => (
+                <div
+                  key={unit}
+                  className="p-2 sm:p-4 md:p-6 rounded-md text-center transform hover:scale-105 transition duration-300 shadow-lg"
+                  style={{ 
+                    backgroundColor: '#5D342C', 
+                    borderWidth: '2px',
+                    borderStyle: 'solid',
+                    borderColor: '#704638'
+                  }}
+                >
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-bold" 
+                      style={{ color: '#ECC089' }}>
+                    {value.toString().padStart(2, '0')}
+                  </div>
+                  <div className="capitalize text-xs sm:text-sm md:text-lg mt-1 sm:mt-2"
+                      style={{ color: '#D9AB77' }}>
+                    {unit}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="w-full h-px my-4 sm:my-8"
+                style={{ backgroundColor: '#8B4513' }}></div>
+            
+            {/* Event Details Section */}
+            <div className="mt-4 sm:mt-6 p-3 sm:p-6 rounded-md border-2 sm:border-4 text-center max-w-lg mx-auto"
+                style={{ 
+                  backgroundColor: 'rgba(64, 37, 25, 0.7)',
+                  borderColor: '#593A27'
+                }}>
+              <div className="flex items-center justify-center gap-2 sm:gap-3"
+                  style={{ color: '#D9AB77' }}>
+                <CalendarCheck className="w-5 h-5 sm:w-8 sm:h-8" />
+                <span className="text-lg sm:text-xl md:text-2xl font-serif">2<sup>nd</sup>-3<sup>rd</sup> May 2025</span>
+              </div>
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4"
+                  style={{ color: '#D9AB77' }}>
+                <MapPin className="w-5 h-5 sm:w-8 sm:h-8" />
+                <span className="text-lg sm:text-xl md:text-2xl font-serif">NIT Srinagar, Hazratbal</span>
+              </div>
+            </div>
+            
+            {/* Instagram Link Section */}
+            <div className="w-full h-px my-4 sm:my-6"
+                style={{ backgroundColor: '#8B4513' }}></div>
+                
+            <div className="mt-4 sm:mt-6 text-center">
+              <a 
+                href="https://www.instagram.com/rang_e_chinar?igsh=MTd6dnBleXd2NGd3Yg=="
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                style={{ 
+                  backgroundColor: '#5D342C',
+                  border: '2px solid #704638',
+                  color: '#D9AB77'
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span className="text-md sm:text-lg font-serif">Follow us on Instagram</span>
+              </a>
+            </div>
           </div>
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4"
-               style={{ color: '#D9AB77' }}>
-            <MapPin className="w-5 h-5 sm:w-8 sm:h-8" />
-            <span className="text-lg sm:text-xl md:text-2xl font-serif">NIT Srinagar, Hazratbal</span>
-          </div>
-        </div>
-        
-        {/* Instagram Link Section */}
-        <div className="w-full h-px my-4 sm:my-6"
-             style={{ backgroundColor: '#8B4513' }}></div>
-             
-        <div className="mt-4 sm:mt-6 text-center">
-          <a 
-            href="https://www.instagram.com/rang_e_chinar?igsh=MTd6dnBleXd2NGd3Yg==" // Replace with actual Instagram link
-            className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-            style={{ 
-              backgroundColor: '#5D342C',
-              border: '2px solid #704638',
-              color: '#D9AB77'
-            }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
-            <span className="text-md sm:text-lg font-serif">Follow us on Instagram</span>
-          </a>
-          
-          
         </div>
       </div>
+
+      {/* Add CSS for animations */}
+      <style jsx>{`
+        @keyframes simple-fall {
+          0% {
+            top: -10%;
+            transform: translateX(10px) rotate(0deg);
+          }
+          100% {
+            top: 100%;
+            transform: translateX(-10px) rotate(360deg);
+          }
+        }
+        
+        .simple-fall {
+          position: absolute;
+          top: -10%;
+          animation-name: simple-fall;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+          animation-direction: normal;
+        }
+      `}</style>
     </div>
   );
 }
