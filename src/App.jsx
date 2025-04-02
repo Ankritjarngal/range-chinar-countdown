@@ -49,7 +49,7 @@ function App() {
     
     window.addEventListener('resize', handleResize);
     
-    const targetDate = new Date('2025-05-04T00:00:00');
+    const targetDate = new Date('2025-05-02T00:00:00');
     
     const calculateTimeLeft = () => {
       const now = new Date();
