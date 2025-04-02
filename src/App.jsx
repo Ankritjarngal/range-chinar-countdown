@@ -96,15 +96,16 @@ function App() {
         <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-8 border-l-8 border-amber-800"></div>
         <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-8 border-r-8 border-amber-800"></div>
 
-        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4 tracking-wide text-center"
+        {/* Title */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold mb-4 tracking-wide text-center"
             style={{ color: '#E8B25B' }}>
           RANG-E-CHINAR
         </h1>
-        <h2 className="text-3xl md:text-4xl font-serif text-center mb-2"
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-center mb-2"
             style={{ color: '#D6A05C' }}>
           2025 Cultural Festival
         </h2>
-        <h3 className="text-xl md:text-2xl font-serif text-center mb-6"
+        <h3 className="text-xl sm:text-2xl font-serif text-center mb-6"
             style={{ color: '#C39355' }}>
           National Institute of Technology, Srinagar
         </h3>
@@ -122,7 +123,7 @@ function App() {
         </div>
         
         {/* Timer Section */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mt-6">
           {Object.entries(timeLeft).map(([unit, value]) => (
             <div
               key={unit}
@@ -134,11 +135,11 @@ function App() {
                 borderColor: '#704638'
               }}
             >
-              <div className="text-4xl sm:text-5xl font-bold" 
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold" 
                    style={{ color: '#ECC089' }}>
                 {value.toString().padStart(2, '0')}
               </div>
-              <div className="capitalize text-md sm:text-lg mt-2"
+              <div className="capitalize text-sm sm:text-md md:text-lg mt-2"
                    style={{ color: '#D9AB77' }}>
                 {unit}
               </div>
