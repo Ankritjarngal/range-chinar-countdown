@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CalendarCheck, MapPin } from 'lucide-react';
+import { CalendarCheck, MapPin, Instagram } from 'lucide-react';
 
 function App() {
   const [timeLeft, setTimeLeft] = useState({
@@ -117,9 +117,12 @@ function App() {
         {/* Title - Modified to fit on smaller screens */}
         <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-2 sm:mb-4 tracking-wide text-center"
             style={{ color: '#E8B25B' }}>
-          RANG-E-CHINAR 2.0
+          RANGECHINAR 2.0
         </h1>
-        
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-serif text-center mb-1 sm:mb-2"
+            style={{ color: '#D6A05C' }}>
+          2025 Cultural Festival
+        </h2>
         <h3 className="text-md sm:text-xl font-serif text-center mb-4 sm:mb-6"
             style={{ color: '#C39355' }}>
           National Institute of Technology, Srinagar
@@ -174,12 +177,37 @@ function App() {
           <div className="flex items-center justify-center gap-2 sm:gap-3"
                style={{ color: '#D9AB77' }}>
             <CalendarCheck className="w-5 h-5 sm:w-8 sm:h-8" />
-            <span className="text-lg sm:text-xl md:text-2xl font-serif">4th,5th May 2025</span>
+            <span className="text-lg sm:text-xl md:text-2xl font-serif">4th May 2025</span>
           </div>
           <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4"
                style={{ color: '#D9AB77' }}>
             <MapPin className="w-5 h-5 sm:w-8 sm:h-8" />
             <span className="text-lg sm:text-xl md:text-2xl font-serif">Hazratbal, Srinagar</span>
+          </div>
+        </div>
+        
+        {/* Instagram Link Section */}
+        <div className="w-full h-px my-4 sm:my-6"
+             style={{ backgroundColor: '#8B4513' }}></div>
+             
+        <div className="mt-4 sm:mt-6 text-center">
+          <a 
+            href="https://www.instagram.com/rang_e_chinar?igsh=MTd6dnBleXd2NGd3Yg==" // Replace with actual Instagram link
+            className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+            style={{ 
+              backgroundColor: '#5D342C',
+              border: '2px solid #704638',
+              color: '#D9AB77'
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
+            <span className="text-md sm:text-lg font-serif">Follow us on Instagram</span>
+          </a>
+          
+          <div className="mt-3 text-xs sm:text-sm" style={{ color: '#D9AB77' }}>
+            Stay updated with the latest festival news and announcements
           </div>
         </div>
       </div>
