@@ -66,7 +66,7 @@ function App() {
     
     window.addEventListener('resize', handleResize);
     
-    const targetDate = new Date('2025-05-02T00:00:00');
+    const targetDate = new Date('2025-10-25T00:00:00');
     
     const calculateTimeLeft = () => {
       const now = new Date();
@@ -159,15 +159,16 @@ function App() {
         <div 
           className={`w-full transition-all duration-1500 ease-out overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'}`}
           style={{
-            transition: 'max-height 1.5s cubic-bezier(0.22, 0.61, 0.36, 1)'
+            transition: ' 1.5s cubic-bezier(0.22, 0.61, 0.36, 1)'
           }}
         >
           <div 
             className="w-full py-6 sm:py-10 rounded-lg border-4 sm:border-8 border-double shadow-2xl p-4 sm:p-8"
             style={{ 
-              backgroundColor: 'rgba(31, 24, 18, 0.85)', 
-              borderColor: '#4E342E',
-              boxShadow: '0 0 30px rgba(0,0,0,0.5)',
+              
+              backgroundColor: 'rgba(150, 85, 29, 0.85)', 
+              borderColor: '#221a18ff',
+              boxShadow: '0 0 30px rgba(28, 23, 23, 0.5)',
               backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%23D7CCC8\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E")',
               backgroundBlendMode: 'overlay'
             }}>
@@ -179,18 +180,18 @@ function App() {
 
             {/* Tagline */}
             <h4 className="text-sm xs:text-lg sm:text-2xl font-semibold text-center mb-2"
-                style={{ color: '#D6A869' }}>
+                style={{ color: '#c0bcb9ff' }}>
               . . . The Rhythm Begins In . . .
             </h4>
             
             {/* Title */}
             <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-4 tracking-wide text-center"
-                style={{ color: '#FFCA80' }}>
+                style={{ color: '#fffefdff' }}>
               RANG-E-CHINAR 2.0
             </h1>
             
             <h3 className="text-md sm:text-l font-serif text-center mb-4 sm:mb-6"
-                style={{ color: '#BF9060' }}>
+                style={{ color: '#c0bcb9ff' }}>
               National Institute of Technology, Srinagar
             </h3>
             
@@ -213,7 +214,7 @@ function App() {
                   key={unit}
                   className="p-2 sm:p-4 md:p-6 rounded-md text-center transform hover:scale-105 transition duration-300 shadow-lg"
                   style={{ 
-                    backgroundColor: '#3E2723', 
+                    backgroundColor: '#56241bff', 
                     borderWidth: '2px',
                     borderStyle: 'solid',
                     borderColor: '#5D4037'
@@ -237,13 +238,13 @@ function App() {
             {/* Event Details Section */}
             <div className="mt-4 sm:mt-6 p-3 sm:p-6 rounded-md border-2 sm:border-4 text-center max-w-lg mx-auto"
                 style={{ 
-                  backgroundColor: 'rgba(62, 39, 35, 0.7)',
+                  backgroundColor: '#56241bff',
                   borderColor: '#5D4037'
                 }}>
               <div className="flex items-center justify-center gap-2 sm:gap-3"
                   style={{ color: '#D7CCC8' }}>
                 <CalendarCheck className="w-5 h-5 sm:w-8 sm:h-8" />
-                <span className="text-lg sm:text-xl md:text-2xl font-serif">2<sup>nd</sup>-3<sup>rd</sup> May 2025</span>
+                <span className="text-lg sm:text-xl md:text-2xl font-serif">25<sup>th</sup>-26<sup>th</sup> October 2025</span>
               </div>
               <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4"
                   style={{ color: '#D7CCC8' }}>
@@ -262,7 +263,7 @@ function App() {
                   href="https://www.instagram.com/rang_e_chinar?igsh=MTd6dnBleXd2NGd3Yg=="
                   className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   style={{ 
-                    backgroundColor: '#4E342E',
+                    backgroundColor: '#56241bff',
                     border: '2px solid #6D4C41',
                     color: '#D7CCC8'
                   }}
@@ -278,7 +279,7 @@ function App() {
                   href="https://youtube.com/@nitsrinagarofficial?si=HJOsKPe1Z1gjM6kF"
                   className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   style={{ 
-                    backgroundColor: '#4E342E',
+                    backgroundColor: '#56241bff',
                     border: '2px solid #6D4C41',
                     color: '#D7CCC8'
                   }}
@@ -294,7 +295,7 @@ function App() {
                   href="https://www.youtube.com/watch?v=rangechinar24aftermovie"
                   className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   style={{ 
-                    backgroundColor: '#4E342E',
+                    backgroundColor: '#56241bff',
                     border: '2px solid #6D4C41',
                     color: '#D7CCC8'
                   }}
