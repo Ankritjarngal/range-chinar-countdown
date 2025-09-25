@@ -192,7 +192,7 @@ function App() {
             
             <h3 className="text-md sm:text-l font-serif text-center mb-4 sm:mb-6"
                 style={{ color: '#c0bcb9ff' }}>
-              National Institute of Technology, Srinagar
+              National Institute of Technology Srinagar
             </h3>
             
             <div className="w-full h-px my-4 sm:my-6 relative"
@@ -292,7 +292,7 @@ function App() {
                 
                 {/* Aftermovie Link */}
                 <a 
-                  href="https://www.youtube.com/watch?v=rangechinar24aftermovie"
+                  href="https://www.youtube.com/watch?v=mQySVXseGkA"
                   className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   style={{ 
                     backgroundColor: '#56241bff',
